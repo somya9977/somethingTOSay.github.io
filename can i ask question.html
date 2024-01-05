@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runaway No Button</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #noButton {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey anjali do you like me </h1>
+
+  <button id="yesButton" onclick="alert('Great! Here\'s the question.')">Yes</button>
+  <button id="noButton" onmouseover="runAway()">No</button>
+
+  <script>
+    function runAway() {
+      var button = document.getElementById('noButton');
+      var newX = Math.max(0, Math.min(window.innerWidth - button.offsetWidth, Math.random() * (window.innerWidth - button.offsetWidth)));
+      var newY = Math.max(0, Math.min(window.innerHeight - button.offsetHeight, Math.random() * (window.innerHeight - button.offsetHeight)));
+      button.style.transform = 'translate(' + newX + 'px, ' + newY + 'px)';
+    }
+  </script>
+</body>
+</html>
